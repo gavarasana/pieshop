@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ravi.PieShop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43b846d7d0ab4145c71a7862249d0b199f157724")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ravi.PieShop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ravi.PieShop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
