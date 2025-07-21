@@ -1,0 +1,38 @@
+﻿@page "/employee-overview"
+@page "/employee-list"
+@attribute [StreamRendering]
+
+<h1>Employees Overview</h1>
+
+@if (_employees is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-light">
+        <thead class="table-primary">
+            <tr>
+                <th></th>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th></th>               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in _employees)
+            {
+                <tr>
+                    <td><img src="@($"/images/emp{employee.EmployeeId}-small.jpg")" class="rounded-circle"/></td>
+                    <td>@employee.EmployeeId</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>
+                        <a class="btn btn-outline-primary btn-sm mb-1" href="@($"/employeedetail/{employee.EmployeeId}")">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
