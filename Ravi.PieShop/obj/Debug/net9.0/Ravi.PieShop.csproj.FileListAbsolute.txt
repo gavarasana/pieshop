@@ -16,6 +16,7 @@ C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\Ravi.PieShop.Ass
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\Ravi.PieShop.AssemblyInfo.cs
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\Ravi.PieShop.csproj.CoreCompileInputs.cache
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\Ravi.PieShop.MvcApplicationPartsAssemblyInfo.cache
+C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\Ravi.PieShop.sourcelink.json
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -23,7 +24,7 @@ C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\scopedcss\Compon
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\scopedcss\bundle\Ravi.PieShop.styles.css
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\scopedcss\projectbundle\Ravi.PieShop.bundle.scp.css
-C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\compressed\1dts6qzocn-fex89mw77z.gz
+C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\compressed\1dts6qzocn-sbvfl9c1v2.gz
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\compressed\30bhnh4mim-bqjiyaj88i.gz
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\compressed\0wejp7pgnh-c2jlpeoesf.gz
 C:\code\learn\Blazor\Ravi.PieShop\Ravi.PieShop\obj\Debug\net9.0\compressed\v3sublo6v0-erw9l3u2r3.gz
