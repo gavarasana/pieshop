@@ -15,7 +15,8 @@ namespace Ravi.PieShop.Components.Pages
             _employee = Services.MockDataService.Employees?.FirstOrDefault(e => e.EmployeeId == EmployeeId);
             if (_employee == null)
             {
-                throw new InvalidOperationException($"Employee with ID {EmployeeId} not found.");
+                //throw new InvalidOperationException($"Employee with ID {EmployeeId} not found.");
+                _employee = Services.MockDataService.UnknownEmployee;
             }
 
         }

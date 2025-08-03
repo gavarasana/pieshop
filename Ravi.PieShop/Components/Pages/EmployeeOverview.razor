@@ -14,9 +14,18 @@ else
     <div class="row">
         @foreach (var employee in _employees)
         {
-            <div class="col-6 col-lg-4 col-xl-3 col-xxl-3">
-                <EmployeeCard EmployeeQuickViewClicked="ShowEmployeePopup" Employee="employee" />
-            </div>
+            <ErrorBoundary>
+                <ChildContent>
+                    <div class="col-6 col-lg-4 col-xl-3 col-xxl-3">
+                        <EmployeeCard EmployeeQuickViewClicked="ShowEmployeePopup" Employee="employee" />
+                    </div>
+                </ChildContent>
+                <ErrorContent>
+                    <div class="col-6 col-lg-4 col-xl-3 col-xxl-3">
+                        <EmployeeCard EmployeeQuickViewClicked="ShowEmployeePopup" Employee="@UnknownEmployee" />
+                    </div>
+                </ErrorContent>
+            </ErrorBoundary>
         }
     </div>
 }

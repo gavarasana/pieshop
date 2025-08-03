@@ -4,6 +4,7 @@ namespace Ravi.PieShop.Components.Pages
 {
     public partial class EmployeeOverview
     {
+        private Employee UnknownEmployee => Services.MockDataService.UnknownEmployee;
         private List<Employee>? _employees = default!;
         private Employee? _selectedEmployee;
         protected async override Task OnInitializedAsync()

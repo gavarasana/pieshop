@@ -5,4 +5,9 @@
 <h1>Pie Shop HRM</h1>
 
 <h2>Welcome!</h2>
-<br />
+
+@foreach(var widget in Widgets)
+{
+   <DynamicComponent Type="widget" />
+   <br />
+}
