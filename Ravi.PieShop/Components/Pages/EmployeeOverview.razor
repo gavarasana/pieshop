@@ -2,6 +2,8 @@
 
 @rendermode InteractiveServer
 
+<PageTitle>@PageTitle</PageTitle>
+
 <h1>Employees Overview</h1>
 
 @if (_employees is null)
@@ -22,7 +24,8 @@ else
                 </ChildContent>
                 <ErrorContent>
                     <div class="col-6 col-lg-4 col-xl-3 col-xxl-3">
-                        <EmployeeCard EmployeeQuickViewClicked="ShowEmployeePopup" Employee="@UnknownEmployee" />
+                        <div>An Error occurred</div>
+                        @* <EmployeeCard EmployeeQuickViewClicked="ShowEmployeePopup" Employee="@UnknownEmployee" /> *@
                     </div>
                 </ErrorContent>
             </ErrorBoundary>

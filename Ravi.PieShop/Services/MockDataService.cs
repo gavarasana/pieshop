@@ -86,32 +86,32 @@ namespace Ravi.PieShop.Services
                 IsOnHoliday = false
             };
 
-            var e3 = new Employee
-            {
-                MaritalStatus = MaritalStatus.Single,
-                BirthDate = new DateTime(1971, 6, 16),
-                City = "Chicago",
-                Email = "Bill@anywhere.com",
-                EmployeeId = 3,
-                FirstName = "Willian",
-                LastName = "",
-                Gender = Gender.Male,
-                PhoneNumber = "23459909923",
-                Smoker = false,
-                Street = "New Street",
-                Zip = "51000",
-                JobCategory = _jobCategories[4],
-                JobCategoryId = _jobCategories[4].JobCategoryId,
-                Comment = "Its too hot in here",
-                ExitDate = null,
-                JoinedDate = new DateTime(2021, 11, 04),
-                Country = _countries[2],
-                CountryId = _countries[2].CountryId,
-                IsOnHoliday = false
-            };
+            //var e3 = new Employee
+            //{
+            //    MaritalStatus = MaritalStatus.Single,
+            //    BirthDate = new DateTime(1971, 6, 16),
+            //    City = "Chicago",
+            //    Email = "Bill@anywhere.com",
+            //    EmployeeId = 3,
+            //    FirstName = "Willian",
+            //    LastName = "",
+            //    Gender = Gender.Male,
+            //    PhoneNumber = "23459909923",
+            //    Smoker = false,
+            //    Street = "New Street",
+            //    Zip = "51000",
+            //    JobCategory = _jobCategories[4],
+            //    JobCategoryId = _jobCategories[4].JobCategoryId,
+            //    Comment = "Its too hot in here",
+            //    ExitDate = null,
+            //    JoinedDate = new DateTime(2021, 11, 04),
+            //    Country = _countries[2],
+            //    CountryId = _countries[2].CountryId,
+            //    IsOnHoliday = false
+            //};
 
 
-            return [e1, e2, e3];
+            return [e1, e2];
         }
 
         private static List<JobCategory> InitializeMockJobCategories() => [
