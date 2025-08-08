@@ -5,6 +5,7 @@ using Ravi.PieShop.Contracts.Services;
 using Ravi.PieShop.Data;
 using Ravi.PieShop.Repositories;
 using Ravi.PieShop.Services;
+using Ravi.PieShop.State;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<SharedState>();
 
 
 var app = builder.Build();
