@@ -9,7 +9,7 @@ namespace Ravi.PieShop.Components.Pages
         private const string PageTitle = "Employee Overview";
 
         [Inject]
-        private EmployeeService EmployeeService { get; set; } = default!;
+        public EmployeeService EmployeeService { get; set; } = default!;
 
         private IEnumerable<Employee>? _employees = default!;
         private Employee? _selectedEmployee;

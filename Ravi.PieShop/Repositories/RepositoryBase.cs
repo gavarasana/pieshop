@@ -8,7 +8,7 @@ namespace Ravi.PieShop.Repositories
         protected readonly TContext _context;
         private bool _disposed;
 
-        protected RepositoryBase(IDbContextFactory<TContext> appDbContextFactory)
+        public RepositoryBase(IDbContextFactory<TContext> appDbContextFactory)
         {
             _context = appDbContextFactory.CreateDbContext();
             if (_context == null)
