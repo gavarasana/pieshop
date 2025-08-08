@@ -1,23 +1,29 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Ravi.PieShop.Services;
 using Ravi.PieShop.Shared.Domain;
 
 namespace Ravi.PieShop.Components.Pages
 {
     public partial class EmployeeDetail
     {
+        private const string PageTitle = "Employee Detail";
+
+        [Inject]
+        public EmployeeService EmployeeService { get; set; } = default!;
+
         [Parameter]
         public int EmployeeId { get; set; }
+
         private Employee? _employee = default!;
 
         protected async override Task OnInitializedAsync()
         {
-            await Task.Delay(2000); // Simulate a delay for data loading
-            _employee = Services.MockDataService.Employees?.FirstOrDefault(e => e.EmployeeId == EmployeeId);
+            
+            _employee = await EmployeeService.GetEmployeeByIdAsync(EmployeeId);
             if (_employee == null)
             {
                 throw new InvalidOperationException($"Employee with ID {EmployeeId} not found.");
             }
-
         }
 
         private void ChangeHolidayState()

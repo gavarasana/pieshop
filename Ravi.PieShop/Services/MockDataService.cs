@@ -8,6 +8,20 @@ namespace Ravi.PieShop.Services
         private static List<JobCategory> _jobCategories = default!;
         private static List<Country> _countries = default!;
 
+        public static Employee UnknownEmployee => new Employee
+        {
+            EmployeeId = 0,
+            FirstName = "Unknown",
+            LastName = "Employee",
+            Email = "unknown",
+            JobCategory = _jobCategories[0],
+            JobCategoryId = _jobCategories[0].JobCategoryId,
+            Country = _countries[0],
+            CountryId = _countries[0].CountryId,
+            Gender = Gender.Other,
+            JoinedDate = new DateTime(1900, 1, 1),
+        };
+
         public static List<Employee>? Employees
         {
             get
@@ -72,10 +86,36 @@ namespace Ravi.PieShop.Services
                 IsOnHoliday = false
             };
 
+            //var e3 = new Employee
+            //{
+            //    MaritalStatus = MaritalStatus.Single,
+            //    BirthDate = new DateTime(1971, 6, 16),
+            //    City = "Chicago",
+            //    Email = "Bill@anywhere.com",
+            //    EmployeeId = 3,
+            //    FirstName = "Willian",
+            //    LastName = "",
+            //    Gender = Gender.Male,
+            //    PhoneNumber = "23459909923",
+            //    Smoker = false,
+            //    Street = "New Street",
+            //    Zip = "51000",
+            //    JobCategory = _jobCategories[4],
+            //    JobCategoryId = _jobCategories[4].JobCategoryId,
+            //    Comment = "Its too hot in here",
+            //    ExitDate = null,
+            //    JoinedDate = new DateTime(2021, 11, 04),
+            //    Country = _countries[2],
+            //    CountryId = _countries[2].CountryId,
+            //    IsOnHoliday = false
+            //};
+
+
             return [e1, e2];
         }
 
         private static List<JobCategory> InitializeMockJobCategories() => [
+                new JobCategory{JobCategoryId = 0, JobCategoryName = "Unknown"},
                 new JobCategory{JobCategoryId = 1, JobCategoryName = "Pie research"},
                 new JobCategory{JobCategoryId = 2, JobCategoryName = "Sales"},
                 new JobCategory{JobCategoryId = 3, JobCategoryName = "Management"},
@@ -89,6 +129,7 @@ namespace Ravi.PieShop.Services
             ];
 
         private static List<Country> InitializeMockCountries() => [
+                new Country {CountryId = 0, Name = "Unknown"},
                 new Country {CountryId = 1, Name = "Belgium"},
                 new Country {CountryId = 2, Name = "Netherlands"},
                 new Country {CountryId = 3, Name = "USA"},

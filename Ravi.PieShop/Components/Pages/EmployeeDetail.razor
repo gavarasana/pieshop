@@ -1,7 +1,7 @@
 ﻿@page "/employeedetail/{employeeId:int}"
 @rendermode InteractiveServer 
 
-
+<PageTitle>@PageTitle</PageTitle>
 
 <h3>Employee Details</h3>
 
@@ -32,7 +32,7 @@ else
                     </div>
                 }
                 <div class="mt-2">
-                    <button type="button" class="btn btn-outline-primary me-1" @onclick="@ChangeHolidayState">Change holiday state</button>
+                    <button type="button" class="btn btn-outline-primary me-1" @onclick="ChangeHolidayState">Change holiday state</button>
                 </div>
             </div>
 

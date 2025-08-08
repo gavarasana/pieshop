@@ -1,14 +1,26 @@
-﻿using Ravi.PieShop.Shared.Domain;
+﻿using Microsoft.AspNetCore.Components;
+using Ravi.PieShop.Services;
+using Ravi.PieShop.Shared.Domain;
 
 namespace Ravi.PieShop.Components.Pages
 {
     public partial class EmployeeOverview
     {
-        private List<Employee>? _employees = default!;
+        private const string PageTitle = "Employee Overview";
+
+        [Inject]
+        public EmployeeService EmployeeService { get; set; } = default!;
+
+        private IEnumerable<Employee>? _employees = default!;
+        private Employee? _selectedEmployee;
+
         protected async override Task OnInitializedAsync()
         {
-            await Task.Delay(2000); // Simulate a delay for data loading
-            _employees = Services.MockDataService.Employees;
+            _employees = await EmployeeService.GetAllEmployeesAsync();
+        }
+        private void ShowEmployeePopup(Employee employee)
+        {
+            _selectedEmployee = employee;
         }
     }
 }
