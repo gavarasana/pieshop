@@ -15,6 +15,7 @@ namespace Ravi.PieShop.Components.Pages
         public int EmployeeId { get; set; }
 
         private Employee? _employee = default!;
+        private IEnumerable<TimeRegistration>? _timeRegistrations;
 
         protected async override Task OnInitializedAsync()
         {
@@ -24,6 +25,8 @@ namespace Ravi.PieShop.Components.Pages
             {
                 throw new InvalidOperationException($"Employee with ID {EmployeeId} not found.");
             }
+
+            //_timeRegistrations = await EmployeeService.GetTimeRegistrationsForEmployeeAsync(EmployeeId);
         }
 
         private void ChangeHolidayState()

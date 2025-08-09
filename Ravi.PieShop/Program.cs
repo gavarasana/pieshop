@@ -20,6 +20,7 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<ITimeRegistrationRepository, TimeRegistrationRepository>();
 builder.Services.AddScoped<SharedState>();
 
 

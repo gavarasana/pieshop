@@ -15,5 +15,8 @@ namespace Ravi.PieShop.Contracts.Services
         /// <param name="employeeId">The ID of the employee to retrieve.</param>
         /// <returns>A task that represents the asynchronous operation, containing the employee if found, otherwise null.</returns>
         Task<Employee?> GetEmployeeByIdAsync(int employeeId);
+
+        Task<IEnumerable<TimeRegistration>> GetTimeRegistrationsForEmployeeAsync(int employeeId);
+
     }
 }

@@ -14,6 +14,7 @@ namespace Ravi.PieShop.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<TimeRegistration> TimeRegistrations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -83,6 +84,22 @@ namespace Ravi.PieShop.Data
                     Comment = "New employee, eager to learn."
                 }
             );
+
+            var random = new Random();
+            // Seed data for TimeRegistrations
+            for (int i= 1;i <= 1000; i++)
+            {
+                modelBuilder.Entity<TimeRegistration>().HasData(
+                    new TimeRegistration
+                    {
+                        Id = i,
+                        EmployeeId = 1,
+                        StartTime = new DateTime(2023, 10, 1, random.Next(8, 10), random.Next(0, 60), 0),
+                        EndTime = new DateTime(2023, 10, 1, random.Next(16, 18), random.Next(0, 60), 0),
+                        TaskDescription = $"Task {i} description"
+                    }
+                );
+            }
         }
     }
 }
