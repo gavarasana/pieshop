@@ -1,0 +1,48 @@
+﻿@page "/sample-employee"
+@rendermode InteractiveServer
+
+<h3>Sample Employee</h3>
+
+
+<div class="form-group">
+    <h4> One way binding </h4>
+    <label for="firstname">First Name: @Employee.FirstName</label>
+    <label for="lastname">Last Name: @Employee.LastName</label>
+    <label for="email">Email: @Employee.Email</label>
+</div>  
+
+<div class="form-group">
+    <h4> One way binding on form controls </h4>
+    <label for="firstname">First Name:</label>
+    <input value="@Employee.FirstName" />
+    <label for="lastname">Last Name:</label>
+    <input value="@Employee.LastName" />
+    <label for="email">Email:</label>
+    <input value="@Employee.Email" />
+</div>
+
+<div class="form-group">
+    <h4> Two way binding on form controls</h4>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" class="form-control" @bind="@Employee.FirstName" placeholder="Enter First Name" />
+
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" class="form-control" @bind="@Employee.LastName" placeholder="Enter Last Name" />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-control" @bind="@Employee.Email" placeholder="Enter Email" />
+</div>
+
+<div>
+    <h4> Two way binding on form controls with event</h4>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" class="form-control" @bind-value="@Employee.FirstName" @bind-value:event="oninput" placeholder="Enter First Name" required />
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" class="form-control" @bind-value="@Employee.LastName" @bind-value:event="oninput" placeholder="Enter Last Name" required />
+    <label for="email">Email:</label>
+    <input type="email" id="email" class="form-control" @bind-value="@Employee.Email" @bind-value:event="oninput" placeholder="Enter Email" required />
+</div>
+
+<div>
+    <button class="btn btn-primary" @onclick="UpdateName">Click Me</button>
+</div>
