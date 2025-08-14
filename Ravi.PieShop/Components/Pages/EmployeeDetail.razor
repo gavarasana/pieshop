@@ -1,4 +1,6 @@
 ﻿@page "/employeedetail/{employeeId:int}"
+@using Microsoft.AspNetCore.Components.QuickGrid
+
 @rendermode InteractiveServer
 
 <PageTitle>@PageTitle</PageTitle>
@@ -139,6 +141,30 @@ else
             </div>
         </div>
 
+
+        <h2>Time Registrations - QuickGrid Component</h2>
+
+
+        @if (ItemCount == 0)
+        {
+            <p><em>Loading time registrations...</em></p>
+        }
+        else
+        {
+            <div class="col-12 mt-4">
+                <h3>Time registrations</h3>
+                <QuickGrid Items="@_timeRegistrationsQuery" TItem="TimeRegistration" Pagination="@PaginationState">
+                    <PropertyColumn Property="x => x.Id" Title="Id" IsDefaultSortColumn ="true" Sortable="true" />
+                    <PropertyColumn Property="x => x.StartTime" Title="Start time"  Sortable="true" />
+                    <PropertyColumn Property="x => x.EndTime" Title="End time" Sortable="true" />
+                    <PropertyColumn Property="x => x.TaskDescription" Title="Duration" Align="Align.Left" />
+                </QuickGrid>
+                <Paginator State="@PaginationState" />
+            </div>
+        }
+
+        <h2>Time Registrations - Virtualize Component</h2>
+
         @if (TimeRegistrations.Count() == 0)
         {
             <p><em>Loading time registrations...</em></p>
@@ -157,7 +183,7 @@ else
                         </tr>
                     </thead>
                     <tbody>
-                        <Virtualize ItemsProvider="LoadTimeRegistrationsAsync" Context="registration" ItemSize="itemHeight">
+                        <Virtualize ItemsProvider="LoadTimeRegistrationsAsync" Context="registration" ItemSize="ItemHeight">
                             <tr>
                                 <td>@registration.Id</td>
                                 <td>@registration.StartTime.ToShortTimeString()</td>
