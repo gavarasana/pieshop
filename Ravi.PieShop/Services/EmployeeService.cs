@@ -13,7 +13,7 @@ namespace Ravi.PieShop.Services
         public EmployeeService(IEmployeeRepository employeeRepository, ITimeRegistrationRepository timeRegistrationRepository)
         {
             _employeeRepository = employeeRepository;
-            _timeRegistrationRepository = timeRegistrationRepository;   
+            _timeRegistrationRepository = timeRegistrationRepository;
         }
         public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
         {
@@ -24,12 +24,21 @@ namespace Ravi.PieShop.Services
         {
             return await _employeeRepository.GetEmployeeByIdAsync(employeeId);
         }
-                
-        public Task<IEnumerable<TimeRegistration>> GetTimeRegistrationsForEmployeeAsync(int employeeId)
+
+        public Task<List<TimeRegistration>> GetTimeRegistrationsForEmployeeAsync(int employeeId)
         {
             return _timeRegistrationRepository.GetTimeRegistrationsForEmployeeAsync(employeeId);
         }
 
+        public Task<List<TimeRegistration>> GetPagedTimeRegistrationsForEmployeeAsync(int employeeId, int pageSize, int startIndex)
+        {
+            return _timeRegistrationRepository.GetPagedTimeRegistrationsForEmployeeAsync(employeeId, pageSize, startIndex);
+        }
+
+        public async Task<int> GetTotalTimeRegistrationsCountForEmployeeAsync(int employeeId)
+        {
+            return await _timeRegistrationRepository.GetTotalTimeRegistrationsCountForEmployeeAsync(employeeId);
+        }
     }
 }
 

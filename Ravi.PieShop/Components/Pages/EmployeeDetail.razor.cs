@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
 using Ravi.PieShop.Contracts.Services;
 using Ravi.PieShop.Shared.Domain;
 
@@ -15,7 +16,8 @@ namespace Ravi.PieShop.Components.Pages
         public int EmployeeId { get; set; }
 
         private Employee? _employee = default!;
-        private IEnumerable<TimeRegistration>? _timeRegistrations;
+        public List<TimeRegistration>? TimeRegistrations = [];
+        private int itemHeight = 100;
 
         protected async override Task OnInitializedAsync()
         {
@@ -26,9 +28,17 @@ namespace Ravi.PieShop.Components.Pages
                 throw new InvalidOperationException($"Employee with ID {EmployeeId} not found.");
             }
 
-            //_timeRegistrations = await EmployeeService.GetTimeRegistrationsForEmployeeAsync(EmployeeId);
+            TimeRegistrations = await EmployeeService.GetTimeRegistrationsForEmployeeAsync(EmployeeId) ?? [];
         }
 
+
+        private async ValueTask<ItemsProviderResult<TimeRegistration>> LoadTimeRegistrationsAsync(ItemsProviderRequest request)
+        {
+            var totalCount = await EmployeeService.GetTotalTimeRegistrationsCountForEmployeeAsync(EmployeeId);
+            var numberofRegistrationsToLoad = Math.Min(request.Count, (totalCount - request.StartIndex) );
+            var registrations = await EmployeeService.GetPagedTimeRegistrationsForEmployeeAsync(EmployeeId,  numberofRegistrationsToLoad, request.StartIndex);
+            return new ItemsProviderResult<TimeRegistration>(registrations, totalCount);
+        }
         private void ChangeHolidayState()
         {
             _employee.IsOnHoliday = !_employee.IsOnHoliday;
