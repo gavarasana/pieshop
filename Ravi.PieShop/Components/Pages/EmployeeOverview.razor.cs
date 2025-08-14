@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Ravi.PieShop.Services;
+using Ravi.PieShop.Contracts.Services;
 using Ravi.PieShop.Shared.Domain;
 
 namespace Ravi.PieShop.Components.Pages
@@ -9,7 +9,7 @@ namespace Ravi.PieShop.Components.Pages
         private const string PageTitle = "Employee Overview";
 
         [Inject]
-        public EmployeeService EmployeeService { get; set; } = default!;
+        public IEmployeeService EmployeeService { get; set; } = default!;
 
         private IEnumerable<Employee>? _employees = default!;
         private Employee? _selectedEmployee;

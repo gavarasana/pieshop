@@ -1,5 +1,5 @@
 ﻿@page "/employeedetail/{employeeId:int}"
-@rendermode InteractiveServer 
+@rendermode InteractiveServer
 
 <PageTitle>@PageTitle</PageTitle>
 
@@ -135,9 +135,40 @@ else
                             <label type="text" readonly class="form-control-plaintext">@_employee.ExitDate?.ToShortDateString()</label>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+
+        @if (TimeRegistrations.Count() == 0)
+        {
+            <p><em>Loading time registrations...</em></p>
+        }
+        else
+        {
+            <div class="col-12 mt-4">
+                <h3>Time registrations</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Start time</th>
+                            <th>End time</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <Virtualize ItemsProvider="LoadTimeRegistrationsAsync" Context="registration" ItemSize="itemHeight">
+                            <tr>
+                                <td>@registration.Id</td>
+                                <td>@registration.StartTime.ToShortTimeString()</td>
+                                <td>@registration.EndTime.ToShortTimeString()</td>
+                                <td>@registration.TaskDescription</td>
+                            </tr>
+                        </Virtualize>                        
+                    </tbody>
+                </table>
+            </div>
+        }     
+
     </section>
 }
